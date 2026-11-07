@@ -1,0 +1,15 @@
+User-agent: *
+Allow: /
+Disallow: /dashboard
+Disallow: /deals
+Disallow: /notifications
+Disallow: /activity
+Disallow: /settings
+Disallow: /admin
+Disallow: /api/
+Disallow: /auth/
+
+User-agent: facebookexternalhit
+Allow: /
+
+Sitemap: https://midman.bd/sitemap.xml

@@ -1,0 +1,198 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-poppins), var(--font-hind-siliguri),
+    ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-primary-text: var(--primary-text);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  /* Escrow state colors */
+  --color-verified: var(--verified);
+  --color-verified-foreground: var(--verified-foreground);
+  --color-verified-text: var(--verified-text);
+  --color-pending: var(--pending);
+  --color-pending-foreground: var(--pending-foreground);
+  --color-unverified: var(--unverified);
+  --color-unverified-foreground: var(--unverified-foreground);
+}
+
+/*
+ * ────────────────────────────────────────────────────────────────────
+ * Midman brand palette — the Midman leaf-green identity, shared
+ * across midman.bd and verify.midman.bd.
+ *
+ * BRAND GREEN   #88CB34 (oklch 0.769 0.189 131) — used EXACTLY for
+ *               primary buttons, badges, active states, highlights,
+ *               focus rings and the secured mark, in BOTH modes.
+ * BUTTON INK    #1A2E10 deep leaf charcoal on the brand green
+ *               (7.4:1 AAA — white text on #88CB34 would be 2:1).
+ * TEXT STEP     #3E7C00 (light mode only) — same hue, darkened for
+ *               body-size brand TEXT on light surfaces (5.1:1 AA).
+ *               Dark mode uses the exact brand green for text (9:1).
+ *
+ * LIGHT — near-white leaf-tinted surfaces, deep green-charcoal text.
+ * DARK  — deep green-charcoal surfaces; the brand green glows at 9:1.
+ * All non-brand values are OKLCH; hue ≈131–136 keeps every surface in
+ * the same leaf-green family (no neutral grays anywhere).
+ * ────────────────────────────────────────────────────────────────────
+ */
+:root {
+  --radius: 0.625rem;
+  --background: oklch(0.993 0.003 131);
+  --foreground: oklch(0.21 0.025 136);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.21 0.025 136);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.21 0.025 136);
+  --primary: #88cb34;
+  --primary-foreground: #1a2e10;
+  --primary-text: #3e7c00;
+  --secondary: oklch(0.958 0.012 131);
+  --secondary-foreground: oklch(0.3 0.035 133);
+  --muted: oklch(0.962 0.008 131);
+  --muted-foreground: oklch(0.505 0.02 133);
+  --accent: oklch(0.948 0.025 131);
+  --accent-foreground: oklch(0.32 0.045 133);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.915 0.011 131);
+  --input: oklch(0.915 0.011 131);
+  --ring: #88cb34;
+  --chart-1: #88cb34;
+  --chart-2: oklch(0.627 0.194 149.214);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.645 0.246 16.439);
+  --chart-5: oklch(0.398 0.07 227.392);
+  --sidebar: oklch(0.993 0.003 131);
+  --sidebar-foreground: oklch(0.21 0.025 136);
+  --sidebar-primary: #88cb34;
+  --sidebar-primary-foreground: #1a2e10;
+  --sidebar-accent: oklch(0.948 0.025 131);
+  --sidebar-accent-foreground: oklch(0.32 0.045 133);
+  --sidebar-border: oklch(0.915 0.011 131);
+  --sidebar-ring: #88cb34;
+  /* Escrow state colors */
+  --verified: #88cb34;
+  --verified-foreground: #1a2e10;
+  --verified-text: #3e7c00;
+  --pending: oklch(0.68 0.145 62);
+  --pending-foreground: oklch(0.985 0.01 165);
+  --unverified: oklch(0.556 0 0);
+  --unverified-foreground: oklch(0.985 0 0);
+}
+
+.dark {
+  --background: oklch(0.17 0.016 131);
+  --foreground: oklch(0.955 0.008 131);
+  --card: oklch(0.212 0.017 131);
+  --card-foreground: oklch(0.955 0.008 131);
+  --popover: oklch(0.212 0.017 131);
+  --popover-foreground: oklch(0.955 0.008 131);
+  --primary: #88cb34;
+  --primary-foreground: #1a2e10;
+  --primary-text: #88cb34;
+  --secondary: oklch(0.272 0.019 132);
+  --secondary-foreground: oklch(0.955 0.008 131);
+  --muted: oklch(0.272 0.019 132);
+  --muted-foreground: oklch(0.72 0.014 132);
+  --accent: oklch(0.315 0.024 132);
+  --accent-foreground: oklch(0.96 0.008 131);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 14%);
+  --ring: #88cb34;
+  --chart-1: #88cb34;
+  --chart-2: oklch(0.627 0.194 149.214);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.645 0.246 16.439);
+  --chart-5: oklch(0.488 0.243 264.376);
+  --sidebar: oklch(0.212 0.017 131);
+  --sidebar-foreground: oklch(0.955 0.008 131);
+  --sidebar-primary: #88cb34;
+  --sidebar-primary-foreground: #1a2e10;
+  --sidebar-accent: oklch(0.315 0.024 132);
+  --sidebar-accent-foreground: oklch(0.96 0.008 131);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: #88cb34;
+  /* Escrow state colors */
+  --verified: #88cb34;
+  --verified-foreground: #1a2e10;
+  --verified-text: #88cb34;
+  --pending: oklch(0.79 0.15 70);
+  --pending-foreground: oklch(0.212 0.017 175);
+  --unverified: oklch(0.71 0 0);
+  --unverified-foreground: oklch(0.212 0.017 175);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/*
+ * Bengali typography — the Bangla script carries overhead marks
+ * (matras) above and below the baseline, so it needs a taller line
+ * height and must never be letter-spaced or tightly tracked.
+ * Applied automatically whenever <html lang="bn">.
+ */
+html[lang="bn"] body {
+  line-height: 1.8;
+}
+html[lang="bn"] [class*="tracking-"] {
+  letter-spacing: normal;
+}
+
+/* Subtle grid pattern used on the hero section — tinted with the
+ * exact Midman brand green */
+.bg-grid {
+  background-image:
+    linear-gradient(to right, #88cb3414 1px, transparent 1px),
+    linear-gradient(to bottom, #88cb3414 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+
+.dark .bg-grid {
+  background-image:
+    linear-gradient(to right, #88cb341f 1px, transparent 1px),
+    linear-gradient(to bottom, #88cb341f 1px, transparent 1px);
+}
